@@ -1,5 +1,5 @@
 library(readr)
-usbc_bankruptcyfilings <- read_csv("C:/Users/Angel/Downloads/usbc_bankruptcyfilings.csv")
+usbc_bankruptcyfilings <- read_csv("https://indicadores.pr/dataset/f255a32b-e248-4b34-89f6-fc318bbd1e14/resource/0eebdd10-8933-4e7e-93e4-eb6f7ca3a47d/download/usbc_bankruptcyfilings.csv")
 date = as.Date(usbc_bankruptcyfilings$Month, format = '%m/%d/%Y')
 df = cbind(date, usbc_bankruptcyfilings)
 head(df)
