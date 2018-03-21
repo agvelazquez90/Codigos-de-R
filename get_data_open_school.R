@@ -1,7 +1,5 @@
-# Data de escualas abiertas
-
-old.data <-
-  read.csv("C:/Users/angel.velazquez/Documents/escuelas_abiertas.csv")
+# Data open schools
+# The principal idea is read some lines from the some web page and create a dataframe. The url in this example has change.
 
 library(rvest)
 page <-  read_html(
@@ -16,9 +14,6 @@ lista <-
 lista <- as.data.frame(strsplit(lista, "\r\n\t\r\n\t\t"))
 lista <- lista[-c(1, 2, dim(lista)[1]), ]
  
-if (dim(factor(lista)[1]) - 3 != length(old.data[[2]])) {
-  df = data.frame(factor(lista), levels(old.data[[2]]))
-  write.csv(df, file = "escuelas_abiertas_update1.csv")
-} else{
-  print("No se a encrontrado ninguna actualización")
-}
+df = data.frame(factor(lista), levels(old.data[[2]]))
+write.csv(df, file = "escuelas_abiertas_update1.csv")
+
